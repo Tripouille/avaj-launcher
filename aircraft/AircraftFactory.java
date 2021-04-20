@@ -4,6 +4,8 @@ import interfaces.Flyable;
 import java.util.HashMap;
 
 public abstract class AircraftFactory {
+	private final static Factory factory = new Factory();
+
 	private interface CreateFlyable {
 		Flyable create(String name, Coordinates coordinates);
 	}
@@ -31,8 +33,6 @@ public abstract class AircraftFactory {
 	}
 
 	public static Flyable newAirCraft(String type, String name, int longitude, int latitude, int height) {
-		Factory factory = new Factory();
-
 		if (factory.recipe.containsKey(type))
 			return (factory.recipe.get(type).create(name, new Coordinates(longitude, latitude, height)));
 		return (null);

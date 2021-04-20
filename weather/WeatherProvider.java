@@ -1,9 +1,9 @@
 package weather;
 
-import aircraft.*;
+import aircraft.Coordinates;
 
-public class WeatherProvider {
-	private String weather;
+class WeatherProvider {
+	private final String weather[] = {"RAIN", "FOG", "SUN", "SNOW"};
 
 	private WeatherProvider() {
 	}
@@ -17,7 +17,6 @@ public class WeatherProvider {
 	}
 
 	public String getCurrentWeather(Coordinates coordinates) {
-		weather = "SUN";
-		return (weather);
+		return (weather[0]);
 	}
 }

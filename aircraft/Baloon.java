@@ -10,10 +10,10 @@ class Baloon extends Aircraft implements Flyable {
 	Baloon(String name, Coordinates coordinates) {
 		super(name, coordinates);
 		HashMap<String, Movement> movements = new HashMap<String, Movement>();
-		movements.put("SUN", new Movement(2, 0, 4));
-		movements.put("RAIN", new Movement(0, 0, 5));
-		movements.put("FOG", new Movement(0, 0, 3));
-		movements.put("SNOW", new Movement(0, 0, 15));
+		movements.put("SUN", new Movement(2, 0, 4, ""));
+		movements.put("RAIN", new Movement(0, 0, 5, ""));
+		movements.put("FOG", new Movement(0, 0, 3, ""));
+		movements.put("SNOW", new Movement(0, 0, 15, ""));
 		initializeMovements(movements);
 	}
 
@@ -28,6 +28,6 @@ class Baloon extends Aircraft implements Flyable {
 
 	@Override
 	public String toString() {
-		return ("Type: Baloon, " + super.toString());
+		return ("Baloon" + super.toString());
 	}
 }

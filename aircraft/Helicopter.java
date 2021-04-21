@@ -10,10 +10,10 @@ class Helicopter extends Aircraft implements Flyable {
 	Helicopter(String name, Coordinates coordinates) {
 		super(name, coordinates);
 		HashMap<String, Movement> movements = new HashMap<String, Movement>();
-		movements.put("SUN", new Movement(10, 0, 2));
-		movements.put("RAIN", new Movement(5, 0, 0));
-		movements.put("FOG", new Movement(1, 0, 0));
-		movements.put("SNOW", new Movement(0, 0, 12));
+		movements.put("SUN", new Movement(10, 0, 2, ""));
+		movements.put("RAIN", new Movement(5, 0, 0, ""));
+		movements.put("FOG", new Movement(1, 0, 0, ""));
+		movements.put("SNOW", new Movement(0, 0, 12, ""));
 		initializeMovements(movements);
 	}
 
@@ -28,6 +28,6 @@ class Helicopter extends Aircraft implements Flyable {
 
 	@Override
 	public String toString() {
-		return ("Type: Helicopter, " + super.toString());
+		return ("Helicopter" + super.toString());
 	}
 }

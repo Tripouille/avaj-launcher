@@ -10,10 +10,10 @@ class JetPlane extends Aircraft implements Flyable {
 	JetPlane(String name, Coordinates coordinates) {
 		super(name, coordinates);
 		HashMap<String, Movement> movements = new HashMap<String, Movement>();
-		movements.put("SUN", new Movement(0, 10, 2));
-		movements.put("RAIN", new Movement(0, 5, 0));
-		movements.put("FOG", new Movement(0, 1, 0));
-		movements.put("SNOW", new Movement(0, 0, 7));
+		movements.put("SUN", new Movement(0, 10, 2, "Oh yeah ... I like the sun."));
+		movements.put("RAIN", new Movement(0, 5, 0, ""));
+		movements.put("FOG", new Movement(0, 1, 0, ""));
+		movements.put("SNOW", new Movement(0, 0, 7, ""));
 		initializeMovements(movements);
 	}
 
@@ -28,6 +28,6 @@ class JetPlane extends Aircraft implements Flyable {
 
 	@Override
 	public String toString() {
-		return ("Type: JetPlane, " + super.toString());
+		return ("JetPlane" + super.toString());
 	}
 }

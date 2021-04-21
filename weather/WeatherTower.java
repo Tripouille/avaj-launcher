@@ -8,7 +8,7 @@ public class WeatherTower extends Tower {
 	}
 
 	public void changeWeather() { // remove le public de la mort
-		System.out.println("WeatherTower: changeWeather()");
+		//System.out.println("WeatherTower: changeWeather()");
 		conditionsChanged();
 	}
 

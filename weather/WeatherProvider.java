@@ -13,14 +13,16 @@ class WeatherProvider {
 		return (instance);
 	}
 
-	public String getCurrentWeather(Coordinates coordinates) {
+	public String getCurrentWeather(Coordinates coordinates) { // remove le public
 		byte i = 0;
+		long score = coordinates.getLongitude()
+					+ coordinates.getLatitude() + coordinates.getHeight();
 
-		if (coordinates.getLongitude() % 2 == 1)
+		if (score % 2 != 0)
 			++i;
-		if (coordinates.getLatitude() % 3 == 1)
+		if (score % 3 != 0)
 			++i;
-		if (coordinates.getHeight() % 4 == 1)
+		if (score % 5 != 0)
 			++i;
 		return (weather[i]);
 	}

@@ -9,16 +9,14 @@ class Helicopter extends Aircraft implements Flyable {
 
 	Helicopter(String name, Coordinates coordinates) {
 		super(name, coordinates);
-		HashMap<String, Movement> movements = new HashMap<String, Movement>();
-		movements.put("SUN", new Movement(10, 0, 2, ""));
-		movements.put("RAIN", new Movement(5, 0, 0, ""));
-		movements.put("FOG", new Movement(1, 0, 0, ""));
-		movements.put("SNOW", new Movement(0, 0, 12, ""));
-		initializeMovements(movements);
+		movements.put("SUN", new Movement(10, 0, 2, "Off to the wild blue yonder ! Wheeee !"));
+		movements.put("RAIN", new Movement(5, 0, 0, "Some people feel the rain others just get wet."));
+		movements.put("FOG", new Movement(1, 0, 0, "They'll never see me coming !"));
+		movements.put("SNOW", new Movement(0, 0, -12, "And so the snow day begins ..."));
 	}
 
 	public void updateCondition() {
-		updateCoordonates(weatherTower.getWeather(coordinates));
+		updateCoordonates(weatherTower);
 	}
 
 	public void registerTower(WeatherTower weatherTower) {

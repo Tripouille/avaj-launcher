@@ -2,13 +2,14 @@ package aircraft;
 
 import interfaces.Flyable;
 import java.util.HashMap;
+import weather.WeatherTower;
 
 abstract class Aircraft {
 	protected long id;
 	protected String name;
 	protected Coordinates coordinates;
 	private static long idCounter;
-	private HashMap<String, Movement> movements;
+	protected HashMap<String, Movement> movements = new HashMap<String, Movement>();
 
 	protected static class Movement extends Coordinates {
 		private String sentence;
@@ -33,18 +34,20 @@ abstract class Aircraft {
 		return (++idCounter);
 	}
 
-	protected void initializeMovements(HashMap<String, Movement> movements) {
-		this.movements = movements;
-	}
+	protected void updateCoordonates(WeatherTower weatherTower) {
+		Movement movement = movements.get(weatherTower.getWeather(coordinates));
 
-	protected void updateCoordonates(String weather) {
-		Movement movement = movements.get(weather);
 		int height = coordinates.getHeight() + movement.getHeight() >= 100 ?
 					100 : coordinates.getHeight() + movement.getHeight();
-
+		height = height > 0 ? height : 0;
 		this.coordinates = new Coordinates(coordinates.getLongitude() + movement.getLongitude(),
 										coordinates.getLatitude() + movement.getLatitude(), height);
+
 		System.out.println(this + ": " + movement.getSentence());
+		if (coordinates.getHeight() == 0) {
+			System.out.println(this + " landing.");
+			weatherTower.unregister((Flyable)this);
+		}
 	}
 
 	public String toString() {

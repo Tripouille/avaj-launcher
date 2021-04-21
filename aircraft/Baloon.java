@@ -9,16 +9,14 @@ class Baloon extends Aircraft implements Flyable {
 
 	Baloon(String name, Coordinates coordinates) {
 		super(name, coordinates);
-		HashMap<String, Movement> movements = new HashMap<String, Movement>();
-		movements.put("SUN", new Movement(2, 0, 4, ""));
-		movements.put("RAIN", new Movement(0, 0, 5, ""));
-		movements.put("FOG", new Movement(0, 0, 3, ""));
-		movements.put("SNOW", new Movement(0, 0, 15, ""));
-		initializeMovements(movements);
+		movements.put("SUN", new Movement(2, 0, 4, "If you want to shine like a sun, first burn like a sun."));
+		movements.put("RAIN", new Movement(0, 0, -5, "Let’s agree that the office should be closed when it rains."));
+		movements.put("FOG", new Movement(0, 0, -3, "I tried to catch some fog but I mist."));
+		movements.put("SNOW", new Movement(0, 0, -15, "Wake me up when it's summer ..."));
 	}
 
 	public void updateCondition() {
-		updateCoordonates(weatherTower.getWeather(coordinates));
+		updateCoordonates(weatherTower);
 	}
 
 	public void registerTower(WeatherTower weatherTower) {

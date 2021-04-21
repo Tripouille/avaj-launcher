@@ -1,6 +1,6 @@
 package interfaces;
 
-import weather.*;
+import weather.WeatherTower;
 
 public interface Flyable {
 	void updateCondition();

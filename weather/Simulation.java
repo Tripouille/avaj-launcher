@@ -4,8 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-import aircraft.*;
-import interfaces.*;
+import aircraft.AircraftFactory;
+import exception.BadCoordinatesException;
 
 class Simulation {
 	private static WeatherTower	tower = new WeatherTower();
@@ -26,13 +26,13 @@ class Simulation {
 				throw new NumberFormatException("Required simulation can't be <= 0");
 			while ((currentLine = reader.readLine()) != null) {
 				String[] infos = currentLine.split(" ");
+				if (infos.length != 5)
+					throw new ParseException("Invalid line format");
 				AircraftFactory.newAirCraft(infos[0], infos[1],
 				Integer.parseInt(infos[2]), Integer.parseInt(infos[3]), Integer.parseInt(infos[4])).registerTower(tower);
 			}
 		} catch (IOException | NumberFormatException e) {
 			throw new ParseException(e.getMessage());
-		} catch (ArrayIndexOutOfBoundsException e) {
-			throw new ParseException("Invalid line format: " + e.getMessage());
 		} catch (BadCoordinatesException e) {
 			throw new ParseException("BadCoordinatesException: " + e.getMessage());
 		}

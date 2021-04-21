@@ -1,8 +1,8 @@
 package weather;
 
-import interfaces.*;
-import java.util.*;
-import java.sql.Array;
+import interfaces.Flyable;
+import java.util.List;
+import java.util.ArrayList;
 
 abstract class Tower {
 	private List<Flyable> observers = new ArrayList<Flyable>();

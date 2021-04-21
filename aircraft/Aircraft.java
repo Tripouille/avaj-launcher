@@ -1,8 +1,10 @@
 package aircraft;
 
-import interfaces.Flyable;
 import java.util.HashMap;
+
+import interfaces.Flyable;
 import weather.WeatherTower;
+import exception.BadCoordinatesException;
 
 abstract class Aircraft {
 	protected long id;
@@ -46,10 +48,10 @@ abstract class Aircraft {
 		100 : coordinates.getHeight() + movement.getHeight();
 		height = height > 0 ? height : 0;
 
-		if (coordinates.getHeight() > 0)
-			System.out.println(this + ": " + movement.getSentence());
 		this.coordinates = new Coordinates(coordinates.getLongitude() + movement.getLongitude(),
-										coordinates.getLatitude() + movement.getLatitude(), height);
+									coordinates.getLatitude() + movement.getLatitude(), height);
+
+		System.out.println(this + ": " + movement.getSentence());
 		if (coordinates.getHeight() == 0) {
 			System.out.println(this + " landing.");
 			weatherTower.unregister((Flyable)this);

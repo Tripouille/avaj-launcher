@@ -1,7 +1,7 @@
-package aircraft;
+package exception;
 
 public class BadCoordinatesException extends Exception {
-	BadCoordinatesException(String errorMessage) {
+	public BadCoordinatesException(String errorMessage) {
 		super(errorMessage);
 	}
 }

@@ -1,8 +1,9 @@
 package aircraft;
 
-import interfaces.Flyable;
 import java.util.HashMap;
-import aircraft.*;
+
+import interfaces.Flyable;
+import exception.BadCoordinatesException;
 
 public abstract class AircraftFactory {
 	private final static Factory factory = new Factory();

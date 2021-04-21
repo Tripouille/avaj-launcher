@@ -2,7 +2,7 @@ package aircraft;
 
 import interfaces.Flyable;
 import weather.WeatherTower;
-import java.util.HashMap;
+import exception.BadCoordinatesException;
 
 class JetPlane extends Aircraft implements Flyable {
 	private WeatherTower weatherTower;

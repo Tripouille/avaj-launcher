@@ -1,7 +1,7 @@
 all:
 	@find * -name "*.java" > sources.txt
 	@javac @sources.txt
-	@java Main
+	@java weather/Simulation
 	@rm -rf *.class */*.class sources.txt
 
 

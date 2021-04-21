@@ -13,7 +13,7 @@ class WeatherProvider {
 		return (weatherProvider);
 	}
 
-	public String getCurrentWeather(Coordinates coordinates) { // remove le public
+	String getCurrentWeather(Coordinates coordinates) {
 		byte i = 0;
 		long score = coordinates.getLongitude()
 					+ coordinates.getLatitude() + coordinates.getHeight();

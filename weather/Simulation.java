@@ -1,8 +1,9 @@
-import aircraft.*;
-import weather.*;
-import interfaces.Flyable;
+package weather;
 
-public class Main {
+import aircraft.*;
+import interfaces.*;
+
+public class Simulation {
 	public static void main(String av[]) {
 		Flyable j = AircraftFactory.newAirCraft("JetPlane", "J1", 1, 2, 3);
 		Flyable h = AircraftFactory.newAirCraft("Helicopter", "H1", 1, 2, 3);

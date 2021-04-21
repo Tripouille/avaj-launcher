@@ -7,7 +7,7 @@ import java.util.HashMap;
 class Baloon extends Aircraft implements Flyable {
 	private WeatherTower weatherTower;
 
-	Baloon(String name, Coordinates coordinates) {
+	Baloon(String name, Coordinates coordinates) throws BadCoordinatesException {
 		super(name, coordinates);
 		movements.put("SUN", new Movement(2, 0, 4, "If you want to shine like a sun, first burn like a sun."));
 		movements.put("RAIN", new Movement(0, 0, -5, "Let’s agree that the office should be closed when it rains."));

@@ -25,15 +25,17 @@ class Simulation {
 			if (requiredSimulation <= 0)
 				throw new NumberFormatException("Required simulation can't be <= 0");
 			while ((currentLine = reader.readLine()) != null) {
-				System.out.println(currentLine);
-				for(String s : currentLine.split(" "))
-					System.out.println(s);
-
+				String[] infos = currentLine.split(" ");
+				AircraftFactory.newAirCraft(infos[0], infos[1],
+				Integer.parseInt(infos[2]), Integer.parseInt(infos[3]), Integer.parseInt(infos[4])).registerTower(tower);
 			}
 		} catch (IOException | NumberFormatException e) {
 			throw new ParseException(e.getMessage());
+		} catch (ArrayIndexOutOfBoundsException e) {
+			throw new ParseException("Invalid line format: " + e.getMessage());
+		} catch (BadCoordinatesException e) {
+			throw new ParseException("BadCoordinatesException: " + e.getMessage());
 		}
-
 	}
 
 	private static void run() {

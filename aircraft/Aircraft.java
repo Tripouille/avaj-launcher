@@ -24,7 +24,13 @@ abstract class Aircraft {
 		}
 	}
 
-	protected Aircraft(String name, Coordinates coordinates) {
+	protected Aircraft(String name, Coordinates coordinates) throws BadCoordinatesException {
+		if (coordinates.getLongitude() < 0)
+			throw new BadCoordinatesException("Longitude must be positive");
+		else if (coordinates.getLatitude() < 0)
+			throw new BadCoordinatesException("Latitute must be positive");
+		else if (coordinates.getHeight() < 0 || coordinates.getHeight() > 100)
+			throw new BadCoordinatesException("Height must be between 0 and 100");
 		this.name = name;
 		this.coordinates = coordinates;
 		this.id = nextId();
@@ -36,14 +42,14 @@ abstract class Aircraft {
 
 	protected void updateCoordonates(WeatherTower weatherTower) {
 		Movement movement = movements.get(weatherTower.getWeather(coordinates));
-
 		int height = coordinates.getHeight() + movement.getHeight() >= 100 ?
-					100 : coordinates.getHeight() + movement.getHeight();
+		100 : coordinates.getHeight() + movement.getHeight();
 		height = height > 0 ? height : 0;
+
+		if (coordinates.getHeight() > 0)
+			System.out.println(this + ": " + movement.getSentence());
 		this.coordinates = new Coordinates(coordinates.getLongitude() + movement.getLongitude(),
 										coordinates.getLatitude() + movement.getLatitude(), height);
-
-		System.out.println(this + ": " + movement.getSentence());
 		if (coordinates.getHeight() == 0) {
 			System.out.println(this + " landing.");
 			weatherTower.unregister((Flyable)this);

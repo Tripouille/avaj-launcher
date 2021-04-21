@@ -7,7 +7,7 @@ import java.util.HashMap;
 class Helicopter extends Aircraft implements Flyable {
 	private WeatherTower weatherTower;
 
-	Helicopter(String name, Coordinates coordinates) {
+	Helicopter(String name, Coordinates coordinates) throws BadCoordinatesException {
 		super(name, coordinates);
 		movements.put("SUN", new Movement(10, 0, 2, "Off to the wild blue yonder ! Wheeee !"));
 		movements.put("RAIN", new Movement(5, 0, 0, "Some people feel the rain others just get wet."));

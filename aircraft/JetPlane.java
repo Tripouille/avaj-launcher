@@ -7,7 +7,7 @@ import java.util.HashMap;
 class JetPlane extends Aircraft implements Flyable {
 	private WeatherTower weatherTower;
 
-	JetPlane(String name, Coordinates coordinates) {
+	JetPlane(String name, Coordinates coordinates) throws BadCoordinatesException {
 		super(name, coordinates);
 		movements.put("SUN", new Movement(0, 10, 2, "Watch me, sun ! I'm going fast ! Vrooooooom ..."));
 		movements.put("RAIN", new Movement(0, 5, 0, "Oh no cloud, why did you cry ... :("));

@@ -1,6 +1,6 @@
 import aircraft.*;
+import weather.*;
 import interfaces.Flyable;
-import weather.WeatherTower;
 
 public class Main {
 	public static void main(String av[]) {
@@ -13,10 +13,8 @@ public class Main {
 		System.out.println(h3);
 		System.out.println(h4);
 		WeatherTower tower = new WeatherTower();
-		tower.register(null);
-		tower.register(null);
-		tower.register(h1);
-		tower.register(h1);
+		h1.registerTower(tower);
+		//tower.changeWeather();
 		//System.out.println(tower.getWeather(new Coordinates(1, 4, 5)));
 	}
 }

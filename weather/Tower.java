@@ -6,8 +6,12 @@ import java.util.*;
 abstract class Tower {
 	private Set<Flyable> observers = new HashSet<Flyable>();
 	
+	public String formatAction(String action) {
+		return ("Tower: " + action + " ");
+	}
+
 	public void register(Flyable flyable) {
-		String infos = "Tower: registering " + flyable;
+		String infos = formatAction("registering") + flyable;
 
 		try {
 			if (flyable == null)
@@ -24,7 +28,7 @@ abstract class Tower {
 	}
 
 	public void unregister(Flyable flyable) {
-		String infos = "Tower: unregistering " + flyable;
+		String infos = formatAction("unregistering") + flyable;
 
 		try {
 			if (flyable == null)
@@ -33,7 +37,8 @@ abstract class Tower {
 				infos += " -> success.";
 			else
 				infos += " -> not found.";
-		} catch (ClassCastException | NullPointerException | UnsupportedOperationException e) {
+		} catch (ClassCastException | NullPointerException
+		| UnsupportedOperationException e) {
 			infos += " -> invalid flyable.";
 		}
 		System.out.println(infos);

@@ -2,8 +2,9 @@ package aircraft;
 
 import java.util.HashMap;
 
+import exceptions.BadCoordinatesException;
+import exceptions.UnknownTypeException;
 import interfaces.Flyable;
-import exception.BadCoordinatesException;
 
 public abstract class AircraftFactory {
 	private final static Factory factory = new Factory();
@@ -34,9 +35,10 @@ public abstract class AircraftFactory {
 		}
 	}
 
-	public static Flyable newAirCraft(String type, String name, int longitude, int latitude, int height) throws BadCoordinatesException {
-		if (factory.recipe.containsKey(type))
-			return (factory.recipe.get(type).create(name, new Coordinates(longitude, latitude, height)));
-		return (null);
+	public static Flyable newAirCraft(String type, String name, int longitude, int latitude, int height)
+					throws UnknownTypeException, BadCoordinatesException {
+		if (!factory.recipe.containsKey(type))
+			throw new UnknownTypeException("AircraftFactory does not know this type");
+		return (factory.recipe.get(type).create(name, new Coordinates(longitude, latitude, height)));
 	}
 }

@@ -5,7 +5,8 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import aircraft.AircraftFactory;
-import exception.BadCoordinatesException;
+import exceptions.BadCoordinatesException;
+import exceptions.UnknownTypeException;
 
 class Simulation {
 	private static WeatherTower	tower = new WeatherTower();
@@ -35,6 +36,8 @@ class Simulation {
 			throw new ParseException(e.getMessage());
 		} catch (BadCoordinatesException e) {
 			throw new ParseException("BadCoordinatesException: " + e.getMessage());
+		} catch (UnknownTypeException e) {
+			throw new ParseException("UnknownTypeException: " + e.getMessage());
 		}
 	}
 

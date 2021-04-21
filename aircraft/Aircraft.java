@@ -2,9 +2,9 @@ package aircraft;
 
 import java.util.HashMap;
 
+import exceptions.BadCoordinatesException;
 import interfaces.Flyable;
 import weather.WeatherTower;
-import exception.BadCoordinatesException;
 
 abstract class Aircraft {
 	protected long id;

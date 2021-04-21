@@ -1,4 +1,4 @@
-100
+4
 Baloon B1 15 0 0
 JetPlane J4 0 15 99
-JetPlane J4 0 15 99
+JetPlqne J4 0 15 99

@@ -1,8 +1,8 @@
 package aircraft;
 
+import exceptions.BadCoordinatesException;
 import interfaces.Flyable;
 import weather.WeatherTower;
-import exception.BadCoordinatesException;
 
 class Helicopter extends Aircraft implements Flyable {
 	private WeatherTower weatherTower;

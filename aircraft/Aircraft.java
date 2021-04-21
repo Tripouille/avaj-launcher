@@ -20,7 +20,7 @@ abstract class Aircraft {
 	}
 
 	public String toString() {
-		return (String.format("Type: Helicopter, ID: %d, Name: %s, Coordonates: [%d %d %d]", id, name,
+		return (String.format("ID: %d, Name: %s, Coordonates: [%d %d %d]", id, name,
 								 coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight()));
 	}
 }
